@@ -23,11 +23,14 @@ const AddReview = () => {
         rating,
       });
       // we need to add the review to the state
-      addReview(id,{  name, review: reviewText, rating });
+      addReview(id, { name, review: reviewText, rating });
+
       setName("");
       setReviewText("");
       setRating("Rating");
+
       navigate("/");
+      
     } catch (err) {
       console.log(err);
     }

@@ -1,7 +1,7 @@
 import React from "react";
 
 type StarRatingProps = {
-  rating: number;
+  rating: number
 };
 const StarRating = ({ rating }: StarRatingProps) => {
   const stars = [];
