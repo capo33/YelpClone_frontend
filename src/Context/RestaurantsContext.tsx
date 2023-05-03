@@ -12,7 +12,7 @@ export const RestaurantsContext = createContext<IRestaurantsContext>({
   restaurants: [],
   setRestaurants: () => {},
   addRestaurant: () => {},
-  selectedRestaurant: null,
+  selectedRestaurant: {},
   setSelectedRestaurant: () => {},
   reviews: [],
   setReviews: () => {},
@@ -23,14 +23,14 @@ export const RestaurantsContextProvider = ({
   children,
 }: RestaurantsContextProps) => {
   const [restaurants, setRestaurants] = useState<IRestaurants[]>([]);
-  const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+  const [selectedRestaurant, setSelectedRestaurant] = useState();
   const [reviews, setReviews] = useState<IReviews[]>([]);
 
   const addRestaurant = (restaurant: IRestaurants) => {
     setRestaurants([...restaurants, restaurant]);
   };
 
-  const addReview = (review: IReviews) => {
+  const addReview = (id: string | undefined, review: IReviews) => {
     setReviews([...reviews, review]);
   };
 

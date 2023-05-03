@@ -1,5 +1,5 @@
 export interface IRestaurants {
-  id: string;
+  id: number 
   name: string;
   location: string;
   price_range: number;
@@ -9,18 +9,16 @@ export interface IRestaurants {
 }
 
 export interface IReviews {
-  id: string;
-  restaurant_id: string;
   name: string;
   review: string;
-  rating: number;
+  rating: string;
 }
 
 export interface IRestaurantsContext {
-  setRestaurants: (restaurants: IRestaurants[]) => void; 
+  setRestaurants: (restaurants: IRestaurants[]) => void;
   addRestaurant: (restaurant: IRestaurants) => void;
   setReviews: (reviews: IReviews[]) => void;
-  addReview: (review: IReviews) => void;
+  addReview: (id: string | undefined, review: IReviews) => void;
   restaurants: IRestaurants[];
   reviews: IReviews[];
   selectedRestaurant: any;

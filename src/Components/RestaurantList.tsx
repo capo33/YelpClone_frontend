@@ -14,7 +14,7 @@ export const RestaurantList = () => {
       try {
         const response = await RestaurantFinder.get("/");
 
-        console.log(response);
+        console.log(response.data.data.restaurants);
         setRestaurants(response.data.data.restaurants); // this is the original code
         // setRestaurants(response.data.data.restaurantsWithRatingData);
       } catch (err) {
@@ -28,7 +28,7 @@ export const RestaurantList = () => {
   // delete restaurant
   const handleDelete = async (
     e: React.MouseEvent<HTMLButtonElement>,
-    id: string
+    id: number
   ) => {
     try {
       const response = await RestaurantFinder.delete(`/${id}`);
@@ -73,19 +73,20 @@ export const RestaurantList = () => {
     }
     return (
       <>
-        <StarRating rating={restaurant.average_rating} />
+        <StarRating rating={restaurant?.id} />
+        <span className='text-warning m-1'>({restaurant?.count})</span>{" "}
       </>
     );
   };
 
   // Update Restaurant
-  const handleUpdate = (e: React.MouseEvent<HTMLButtonElement>, id: string) => {
+  const handleUpdate = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
     e.stopPropagation();
     navigate(`/restaurants/${id}/update`);
   };
 
   // Select Restaurant
-  const handleRestaurantSelect = (e: React.MouseEvent, id: string) => {
+  const handleRestaurantSelect = (e: React.MouseEvent, id: number) => {
     navigate(`/restaurants/${id}`);
   };
   return (
