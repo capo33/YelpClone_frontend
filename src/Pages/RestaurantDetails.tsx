@@ -36,11 +36,11 @@ const RestaurantDetailPage = () => {
             {selectedRestaurant.restaurant?.name}
           </h1>
           <div className='text-center'>
-            Average rating
+            Average rating &nbsp;
             <StarRating
               rating={selectedRestaurant.restaurant?.average_rating}
             />
-            <span className='text-warning m-1'>
+            <span className='m-1'>
               (
               {selectedRestaurant.restaurant?.count
                 ? selectedRestaurant.restaurant?.count

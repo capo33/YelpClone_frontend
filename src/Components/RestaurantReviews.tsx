@@ -52,7 +52,7 @@ const RestaurantReviews = ({ reviews }: IRestaurantReviewsProps) => {
             style={{ maxWidth: "30%" }}
           >
             <div className='card-header d-flex justify-content-between align-items-center '>
-              <span>{review?.name}</span>
+              <span>{review?.name ? review?.name : "Anonymous"}</span>
               <button onClick={() => handleDelete(review?.id)} className='btn'>
                 <i className='far fa-trash-alt'></i>
               </button>

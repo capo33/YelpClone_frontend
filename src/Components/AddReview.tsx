@@ -45,7 +45,7 @@ const AddReview = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               id='name'
-              placeholder='name'
+              placeholder='your name'
               className='form-control'
               type='text'
             />
