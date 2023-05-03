@@ -19,7 +19,7 @@ export interface IRestaurantsContext {
   setRestaurants: (restaurants: IRestaurants[]) => void;
   addRestaurant: (restaurant: IRestaurants) => void;
   setReviews: (reviews: IReviews[]) => void;
-  addReview: (review: IReviews, id?: string | undefined) => void;
+  addReview: (id: string | undefined, review: IReviews) => void;
   restaurants: IRestaurants[];
   reviews: IReviews[];
   selectedRestaurant: any;

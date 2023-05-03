@@ -5,6 +5,7 @@ import { RestaurantsContextProvider } from "./Context/RestaurantsContext";
 import "./App.css";
 import Home from "./Pages/Home";
 import RestaurantDetails from "./Pages/RestaurantDetails";
+import UpdataPage from "./Pages/UpdatePage";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/restaurants/:id' element={<RestaurantDetails/>} />
-            {/* <Route path='/restaurants/:id/update' element={<UpdataPage />} /> */}
+            <Route path='/restaurants/:id/update' element={<UpdataPage />} />
           </Routes>
         </Router>
       </div>

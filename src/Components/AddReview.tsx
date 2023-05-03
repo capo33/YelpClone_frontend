@@ -30,7 +30,6 @@ const AddReview = () => {
       setRating("Rating");
 
       navigate("/");
-      
     } catch (err) {
       console.log(err);
     }

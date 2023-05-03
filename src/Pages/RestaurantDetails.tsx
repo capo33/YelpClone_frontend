@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import AddReview from "../Components/AddReview";
@@ -36,7 +36,7 @@ const RestaurantDetailPage = () => {
             {selectedRestaurant.restaurant?.name}
           </h1>
           <div className='text-center'>
-            Average rating{" "}
+            Average rating
             <StarRating
               rating={selectedRestaurant.restaurant?.average_rating}
             />

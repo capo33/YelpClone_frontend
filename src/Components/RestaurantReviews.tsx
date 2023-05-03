@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { RestaurantsContext } from "../Context/RestaurantsContext";
 import StarRating from "./StarRating";
@@ -20,8 +20,8 @@ const RestaurantReviews = ({ reviews }: IRestaurantReviewsProps) => {
     const allRestaurantData = async () => {
       try {
         const response = await RestaurantFinder.get(`/${id}`);
-        addReview(id, response.data.data.reviews);
-        setReviews(response.data.data.reviews);
+        addReview(id, response.data?.data?.reviews);
+        setReviews(response.data?.data?.reviews);
       } catch (err) {
         console.log(err);
       }
@@ -44,33 +44,25 @@ const RestaurantReviews = ({ reviews }: IRestaurantReviewsProps) => {
   };
   return (
     <div className='row row-cols-3 mb-2'>
-      {/* ií use savedReview to render the reciew in the ui */}
-      {/* {reviews.map((review) => {} */}
       {savedReview.map((review) => {
         return (
           <div
             key={review?.id}
-            className='card text-white bg-primary my-3 me-4'
+            className='card text-dark bg-info my-3 me-4'
             style={{ maxWidth: "30%" }}
           >
-            <div className='card-header d-flex justify-content-between'>
+            <div className='card-header d-flex justify-content-between align-items-center '>
               <span>{review?.name}</span>
+              <button onClick={() => handleDelete(review?.id)} className='btn'>
+                <i className='far fa-trash-alt'></i>
+              </button>
+            </div>
+            <div className='card-body'>
               <span>
                 <StarRating rating={parseInt(review?.rating)} />
               </span>
+              <p className='card-text mt-3'>{review?.review}</p>
             </div>
-            <div className='card-body'>
-              <p className='card-text'>{review?.review}</p>
-            </div>
-            <button
-              onClick={() => handleDelete(review?.id)}
-              className='btn btn-danger'
-            >
-              Delete
-            </button>
-            {/* <i className='far fa-trash-alt'></i>
-
-            </button> */}
           </div>
         );
       })}

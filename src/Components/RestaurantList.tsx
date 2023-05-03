@@ -69,12 +69,12 @@ export const RestaurantList = () => {
   // Render Rating
   const renderRating = (restaurant: IRestaurants) => {
     if (!restaurant.count) {
-      return <span className='text-warning'>0 reviews</span>;
+      return <span className='text-danger'>0 reviews</span>;
     }
     return (
       <>
         <StarRating rating={restaurant?.id} />
-        <span className='text-warning m-1'>({restaurant?.count})</span>{" "}
+        <span className='m-1'>({restaurant?.count})</span>
       </>
     );
   };
@@ -91,9 +91,9 @@ export const RestaurantList = () => {
   };
   return (
     <div className='list-group'>
-      <table className='table table-dark table-hover text-center'>
+      <table className='table table-hover text-center'>
         <thead>
-          <tr className='bg-primary'>
+          <tr className='bg-dark text-white'>
             <th>Restaurant</th>
             <th>Location</th>
             <th>Price Range</th>
