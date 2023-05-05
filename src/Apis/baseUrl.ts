@@ -11,5 +11,5 @@ const baseURL =
     : "http://localhost:8080/api/v1/restaurants";
 
 export default axios.create({
-  baseURL : "https://yelpclone-r2uw.onrender.com/api/v1/restaurants"
+  baseURL,
 });
